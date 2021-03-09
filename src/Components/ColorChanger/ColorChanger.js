@@ -7,7 +7,7 @@ const ColorChanger = (props) => {
     <div className="column twelve wide">
       <h2 className="ui teal image header">Welcome to Color Changer</h2>
       <ColorForm />
-      <ColorizedText />
+      <ColorizedText textColor="red"/>
     </div>
   );
 };
