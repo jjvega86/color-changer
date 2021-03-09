@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import ColorChanger from "./Components/ColorChanger/ColorChanger";
 
 const App = () => {
-    return (
-        <div> Hello World</div>
-    )
-}
+  return (
+    <div>
+      {" "}
+      <ColorChanger />
+    </div>
+  );
+};
 
 export default App;
