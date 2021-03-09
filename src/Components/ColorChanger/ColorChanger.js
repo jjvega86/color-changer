@@ -8,7 +8,7 @@ const ColorChanger = () => {
     <div className="column twelve wide">
       <h2 className="ui teal image header">Welcome to Color Changer</h2>
       <ColorForm selectedColor={selectedColor} onColorSelect={setSelectedColor}/>
-      <ColorizedText textColor="red" />
+      <ColorizedText textColor={selectedColor} />
     </div>
   );
 };

@@ -23,7 +23,7 @@ const colorOptions = [
   },
 ];
 
-const ColorForm = ({ onColorSelect }) => {
+const ColorForm = ({ onColorSelect, selectedColor }) => {
   const [isOpen, setOpen] = useState(false);
   const renderedOptions = colorOptions.map(({ value, text }) => {
     return (
@@ -46,6 +46,9 @@ const ColorForm = ({ onColorSelect }) => {
           className={`ui selection dropdown ${isOpen ? "visible active" : ""}`}
         >
           <i className="dropdown icon"></i>
+          <div class="text" style={{ textTransform: "capitalize" }}>
+            {selectedColor}
+          </div>
           <div className={`menu ${isOpen ? "visible transition" : ""}`}>
             {renderedOptions}
           </div>
