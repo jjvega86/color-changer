@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const colorOptions = [
   {
@@ -24,19 +24,29 @@ const colorOptions = [
 ];
 
 const ColorForm = ({ onColorSelect }) => {
+  const [isOpen, setOpen] = useState(false);
   const renderedOptions = colorOptions.map(({ value, text }) => {
     return (
-        <div key={value} className="item" data-value={value}>{text}</div>
+      <div
+        key={value}
+        className="item"
+        data-value={value}
+        onClick={() => onColorSelect(value)}
+      >
+        {text}
+      </div>
     );
   });
   return (
     <div className="ui form">
       <div className="field">
         <label>Pick a color!</label>
-        <div className="ui selection dropdown visible active">
+        <div
+          onClick={() => setOpen(!isOpen)}
+          className={`ui selection dropdown ${isOpen ? "visible active" : ""}`}
+        >
           <i className="dropdown icon"></i>
-          <div className="menu visible transition">
-            <div className="item" data-value="0">Choose Color</div>
+          <div className={`menu ${isOpen ? "visible transition" : ""}`}>
             {renderedOptions}
           </div>
         </div>
