@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ColorForm from "../ColorForm/ColorForm";
-import ColorizedText from '../ColorizedText/ColorizedText';
+import ColorizedText from "../ColorizedText/ColorizedText";
 
-const ColorChanger = (props) => {
+const ColorChanger = () => {
+  const [selectedColor, setSelectedColor] = useState("red");
   return (
     <div className="column twelve wide">
       <h2 className="ui teal image header">Welcome to Color Changer</h2>
-      <ColorForm />
-      <ColorizedText textColor="red"/>
+      <ColorForm selectedColor={selectedColor} onColorSelect={setSelectedColor}/>
+      <ColorizedText textColor="red" />
     </div>
   );
 };

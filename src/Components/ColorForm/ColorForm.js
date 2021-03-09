@@ -23,18 +23,23 @@ const colorOptions = [
   },
 ];
 
-const ColorForm = (props) => {
+const ColorForm = ({ onColorSelect }) => {
   const renderedOptions = colorOptions.map(({ value, text }) => {
-    return <option value={value}>{text}</option>;
+    return (
+        <div key={value} className="item" data-value={value}>{text}</div>
+    );
   });
   return (
     <div className="ui form">
       <div className="field">
         <label>Pick a color!</label>
-        <select className="ui search dropdown">
-          <option value="">Select Color</option>
-          {renderedOptions}
-        </select>
+        <div className="ui selection dropdown visible active">
+          <i className="dropdown icon"></i>
+          <div className="menu visible transition">
+            <div className="item" data-value="0">Choose Color</div>
+            {renderedOptions}
+          </div>
+        </div>
       </div>
     </div>
   );
